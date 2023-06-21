@@ -76,7 +76,7 @@ def main():
         if req.get(r'https://graph.microsoft.com/v1.0/me/outlook/masterCategories',headers=headers).status_code == 200:
             num1+=1
             print('10Successful call'+str(num1)+'times')
-            print(' times End of run time is :', localtime)
+            print('End of run time is :', localtime)
     except:
         print("pass")
         pass
