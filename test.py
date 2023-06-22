@@ -27,6 +27,7 @@ def gettoken(refresh_token):
          }
     html = req.post('https://login.microsoftonline.com/4fd875f0-67a1-4983-aaa9-2357e1b60b69/oauth2/v2.0/token',data=data,headers=headers)
     jsontxt = json.loads(html.text)
+    print(html.text)
     refresh_token = jsontxt['refresh_token']
     access_token = jsontxt['access_token']
     with open(path, 'w+') as f:
