@@ -18,13 +18,14 @@ num1 = 0
 def gettoken(refresh_token):
     headers={'Content-Type':'application/x-www-form-urlencoded'
             }
-    data={'grant_type': 'refresh_token',
-          'refresh_token': refresh_token,
+    data={'grant_type': 'authorization_code',
+          'code': refresh_token,
           'client_id':id,
           'client_secret':secret,
-          'redirect_uri':'http://localhost:53682/'
+          'redirect_uri':'http://localhost:53682/',
+          'scope':'43759619-ba06-42ea-b318-d050fcef5769%2f.default openid profile offline_access'
          }
-    html = req.post('https://login.microsoftonline.com/common/oauth2/v2.0/token',data=data,headers=headers)
+    html = req.post('https://login.microsoftonline.com/4fd875f0-67a1-4983-aaa9-2357e1b60b69/oauth2/v2.0/token',data=data,headers=headers)
     jsontxt = json.loads(html.text)
     refresh_token = jsontxt['refresh_token']
     access_token = jsontxt['access_token']
